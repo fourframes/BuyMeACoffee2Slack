@@ -1,0 +1,10 @@
+name = "buymeacoffee2slack"
+main = "src/entry.py"
+compatibility_date = "2025-09-23"
+
+workers_dev = true
+
+compatibility_flags = ["python_workers"]
+
+[observability.logs]
+enabled = true
