@@ -4,12 +4,13 @@ from js import console, fetch, Object, Headers
 
 class Default(WorkerEntrypoint):
     async def fetch(self, request, env):
+        
         if request.method != "POST":
             return Response("Method Not Allowed", status=405)
 
         try:
             payload = await request.json()
-            console.log("Received webhook payload:", payload)
+            console.log("Received webhook payload:", json.dumps(payload, indent=2))
         except Exception as e:
             console.error("Failed to parse JSON payload:", str(e))
             return Response("Bad Request", status=400)
